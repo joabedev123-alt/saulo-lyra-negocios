@@ -9,7 +9,7 @@ export default function RecebaOportunidades() {
         <span className="text-primary tracking-widest text-xs font-semibold uppercase mb-6 block">
           Curadoria Exclusiva
         </span>
-        <h1 className="text-4xl md:text-5xl font-serif text-white mb-8 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
           ANTECIPE-SE ÀS MELHORES OPORTUNIDADES.
         </h1>
         <p className="text-lg text-muted-foreground mb-16 max-w-2xl mx-auto">
@@ -21,23 +21,23 @@ export default function RecebaOportunidades() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Nome Completo</label>
-                <input type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" />
+                <input type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
               </div>
               
               <div>
                 <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">WhatsApp</label>
-                <input type="tel" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" />
+                <input type="tel" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
               </div>
             </div>
 
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">E-mail</label>
-              <input type="email" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" />
+              <input type="email" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
             </div>
 
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Objetivo Principal</label>
-              <select className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none">
+              <select className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none">
                 <option>Selecione um objetivo</option>
                 <option>Moradia</option>
                 <option>Investimento / Rentabilidade</option>
@@ -47,7 +47,7 @@ export default function RecebaOportunidades() {
 
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Regiões de Interesse</label>
-              <textarea rows={2} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="Ex: Itaim Bibi, Pinheiros, ou Campinas e região"></textarea>
+              <textarea rows={2} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Ex: Itaim Bibi, Pinheiros, ou Campinas e região"></textarea>
             </div>
 
             <Button type="button" className="w-full" size="lg">Cadastrar meu perfil</Button>

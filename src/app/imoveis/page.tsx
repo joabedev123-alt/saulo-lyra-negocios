@@ -1,93 +1,111 @@
 import { PropertyCard } from "@/components/shared/PropertyCard";
+import { properties } from "@/data/properties";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 export default function Imoveis() {
+  const heritage = properties.find(p => p.id === "heritage-riviera");
+  const destaques = properties.filter(p => p.isHighlight && p.id !== "heritage-riviera");
+  const prontos = properties.filter(p => p.status === "Pronto");
+  const lancamentos = properties.filter(p => p.status.toLowerCase().includes("lançamento"));
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      {/* HERO */}
-      <section className="pt-16 pb-12 px-6 border-b border-border-light">
-        <div className="max-w-7xl mx-auto text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-serif text-white mb-6">
-            IMÓVEIS SELECIONADOS PARA DIFERENTES MOMENTOS E OBJETIVOS.
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            Conheça lançamentos e empreendimentos novos selecionados para morar, investir ou construir patrimônio.
-          </p>
-        </div>
-      </section>
-
-      {/* FILTROS E GRID */}
-      <section className="py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
-          
-          {/* Sidebar Filtros (Simples) */}
-          <aside className="w-full md:w-64 shrink-0 space-y-8">
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Localização</h3>
-              <select className="w-full bg-surface border border-border-light rounded-sm px-3 py-2 text-sm text-white focus:border-primary outline-none">
-                <option>São Paulo, SP</option>
-                <option>Campinas, SP</option>
-              </select>
-            </div>
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Status</h3>
-              <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm text-muted hover:text-white cursor-pointer"><input type="checkbox" className="accent-primary" /> Lançamento</label>
-                <label className="flex items-center gap-2 text-sm text-muted hover:text-white cursor-pointer"><input type="checkbox" className="accent-primary" /> Em obras</label>
-                <label className="flex items-center gap-2 text-sm text-muted hover:text-white cursor-pointer"><input type="checkbox" className="accent-primary" /> Pronto para morar</label>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Dormitórios</h3>
-              <div className="flex gap-2">
-                {[1, 2, 3, '4+'].map(num => (
-                  <button key={num} className="flex-1 py-1 border border-border-light hover:border-primary text-sm text-muted hover:text-primary transition-colors rounded-sm">
-                    {num}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </aside>
-
-          {/* Grid */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <PropertyCard
-              name="Reserva Cidade Jardim"
-              neighborhood="Cidade Jardim"
-              city="São Paulo"
-              bedrooms={[3, 4]}
-              areaMin={180}
-              areaMax={250}
-              parkingSpaces={[3, 4]}
-              category="Alto Padrão"
-              imageUrl="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
-              slug="reserva-cidade-jardim"
+      
+      {/* 1. DESTAQUE ESPECIAL */}
+      {heritage && (
+        <section className="relative min-h-[80vh] flex items-center pt-24 pb-12 px-6 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={heritage.imageUrl}
+              alt={heritage.name}
+              fill
+              className="object-cover"
+              priority
             />
-            <PropertyCard
-              name="Lumina Pinheiros"
-              neighborhood="Pinheiros"
-              city="São Paulo"
-              bedrooms={[1, 2]}
-              areaMin={65}
-              areaMax={95}
-              parkingSpaces={[1, 2]}
-              category="Lançamento"
-              imageUrl="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
-              slug="lumina-pinheiros"
-            />
-            <PropertyCard
-              name="Heritage Itaim"
-              neighborhood="Itaim Bibi"
-              city="São Paulo"
-              bedrooms={[4]}
-              areaMin={320}
-              parkingSpaces={[4]}
-              category="Altíssimo Padrão"
-              imageUrl="https://images.unsplash.com/photo-1600566753086-00f18efc2291?q=80&w=1000&auto=format&fit=crop"
-              slug="heritage-itaim"
-            />
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]" />
           </div>
-        </div>
-      </section>
+          
+          <div className="relative z-10 max-w-7xl mx-auto w-full">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6">
+                <i className="bi bi-star-fill"></i> Destaque Especial
+              </span>
+              <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-4 uppercase">
+                {heritage.name}
+              </h1>
+              <h2 className="text-2xl font-serif text-foreground mb-6">
+                {heritage.builder} {heritage.city} — SP
+              </h2>
+              <p className="text-lg text-foreground max-w-xl mb-10">
+                Os endereços que selecionamos para você. Um novo endereço para quem busca exclusividade, sofisticação e qualidade de vida.
+              </p>
+              <Link href={`/imoveis/${heritage.slug}`}>
+                <Button size="lg" className="uppercase tracking-widest text-xs">
+                  Conheça o Empreendimento
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <div className="max-w-7xl mx-auto w-full px-6 py-24 space-y-32">
+        
+        {/* 2. EMPREENDIMENTOS EM DESTAQUE */}
+        <section>
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4 uppercase">Empreendimentos em Destaque</h2>
+            <p className="text-muted text-lg">12 imóveis selecionados do alto padrão.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {destaques.map(p => (
+              <PropertyCard key={p.id} {...p} />
+            ))}
+          </div>
+        </section>
+
+        {/* 3. IMÓVEIS PRONTOS */}
+        <section>
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4 uppercase">Imóveis Prontos</h2>
+            <p className="text-muted text-lg">Para o cliente que quer comprar e mudar imediatamente.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {prontos.map(p => (
+              <PropertyCard key={p.id} {...p} />
+            ))}
+          </div>
+        </section>
+
+        {/* 4. LANÇAMENTOS */}
+        <section>
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4 uppercase">Lançamentos</h2>
+            <p className="text-muted text-lg">Para quem busca condição comercial, valorização e escolha de unidade.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {lancamentos.map(p => (
+              <PropertyCard key={p.id} {...p} />
+            ))}
+          </div>
+        </section>
+
+        {/* 5. OPORTUNIDADES EXCLUSIVAS */}
+        <section className="bg-surface p-12 md:p-24 border border-border-light text-center">
+          <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6 uppercase">Oportunidades Exclusivas</h2>
+          <p className="text-lg text-foreground max-w-2xl mx-auto mb-10">
+            Imóveis de proprietários, áreas, ativos imobiliários e operações especiais. Acesso restrito e curadoria dedicada para negociações exclusivas.
+          </p>
+          <Link href="/contato">
+            <Button size="lg" variant="outline" className="uppercase tracking-widest text-xs">
+              Falar com um Consultor
+            </Button>
+          </Link>
+        </section>
+
+      </div>
     </div>
   );
 }

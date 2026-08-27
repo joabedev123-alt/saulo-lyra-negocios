@@ -4,17 +4,17 @@
 
 :root {
   /* Cores - Baseadas na identidade "Saulo Lyra Negócios e Participações" */
-  --background: #0B0B0B; /* Preto institucional (Fundo principal para o visual premium/dark) */
-  --foreground: #FAF9F6; /* Branco premium para textos */
+  --background: #FFFFFF; /* Branco (Fundo principal) */
+  --foreground: #000000; /* Preto institucional para textos */
   
-  --surface: #050505; /* Preto profundo para cards e seções */
-  --surface-light: #171717; /* Grafite para hover e bordas sutis */
+  --surface: #F5F5F5; /* Cinza claro para cards e seções */
+  --surface-light: #EBEBEB; /* Cinza para hover e bordas sutis */
   
-  --muted: #757575; /* Cinza elegante para textos secundários */
-  --muted-foreground: #a3a3a3;
+  --muted: #000000; /* Textos secundários em preto */
+  --muted-foreground: #000000;
   
-  --border: #171717; /* Borda bem sutil */
-  --border-light: #333333;
+  --border: #E5E5E5; /* Borda bem sutil clara */
+  --border-light: #D4D4D4;
   
   --primary: #A78936; /* Dourado principal */
   --primary-foreground: #050505;
@@ -71,7 +71,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight text-white;
+    @apply font-serif tracking-tight text-foreground;
   }
 
   /* Microinterações e Performance - prefers-reduced-motion */

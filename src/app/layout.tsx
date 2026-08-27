@@ -30,6 +30,9 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Header />
         <main className="flex-1 flex flex-col pt-24">{children}</main>

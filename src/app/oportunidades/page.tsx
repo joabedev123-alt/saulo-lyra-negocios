@@ -9,7 +9,7 @@ export default function Oportunidades() {
           <span className="text-primary tracking-widest text-xs font-semibold uppercase mb-4 block">
             Seleção Especial
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-6">
             OPORTUNIDADES DO MÊS
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

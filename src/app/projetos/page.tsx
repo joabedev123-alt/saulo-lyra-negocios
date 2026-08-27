@@ -15,17 +15,17 @@ export default function Projetos() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-white/40" />
         </div>
         
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <span className="text-primary tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
             Projetos Especiais
           </span>
-          <h1 className="text-4xl md:text-5xl font-serif text-white leading-tight mb-8">
+          <h1 className="text-4xl md:text-5xl font-serif text-foreground leading-tight mb-8">
             SOLUÇÕES CUSTOMIZADAS. ESTRUTURAÇÃO SOB MEDIDA.
           </h1>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-12 font-light">
+          <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto mb-12 font-light">
             Atendemos investidores e corporações na busca, negociação e estruturação de operações imobiliárias fora do padrão convencional.
           </p>
         </div>
@@ -37,7 +37,7 @@ export default function Projetos() {
           <div className="grid md:grid-cols-2 gap-12">
             
             <div className="space-y-6">
-              <h2 className="text-3xl font-serif text-white">BUILT TO SUIT (BTS)</h2>
+              <h2 className="text-3xl font-serif text-foreground">BUILT TO SUIT (BTS)</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Desenvolvimento de projetos imobiliários sob medida para atender as necessidades específicas de uma empresa. Encontramos o terreno, coordenamos o projeto, aprovamos a construção e entregamos as chaves por meio de contratos de locação atípicos de longo prazo.
               </p>
@@ -49,7 +49,7 @@ export default function Projetos() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-3xl font-serif text-white">SALE AND LEASEBACK</h2>
+              <h2 className="text-3xl font-serif text-foreground">SALE AND LEASEBACK</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Sua empresa vende o imóvel em que opera e simultaneamente assina um contrato de locação de longo prazo com o comprador. Uma excelente forma de levantar capital de giro sem precisar mudar a operação de lugar.
               </p>
@@ -67,7 +67,7 @@ export default function Projetos() {
       {/* CTA */}
       <section className="py-24 px-6 bg-background text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-serif text-white mb-6">TEM UM PROJETO ESPECÍFICO EM MENTE?</h2>
+          <h2 className="text-3xl font-serif text-foreground mb-6">TEM UM PROJETO ESPECÍFICO EM MENTE?</h2>
           <p className="text-lg text-muted mb-12">
             Nossa equipe tem a expertise necessária para estruturar operações imobiliárias complexas com discrição e eficiência.
           </p>

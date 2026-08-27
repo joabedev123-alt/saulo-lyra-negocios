@@ -7,7 +7,7 @@ export default function Contato() {
         
         {/* TEXTO E INFO */}
         <div>
-          <h1 className="text-4xl md:text-5xl font-serif text-white mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
             CONVERSAS IMPORTANTES COMEÇAM COM UMA BOA OPORTUNIDADE.
           </h1>
           <p className="text-lg text-muted-foreground mb-12">
@@ -18,7 +18,7 @@ export default function Contato() {
             <div className="flex items-start gap-4">
               <i className="bi bi-whatsapp text-2xl text-primary"></i>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-white mb-1">WhatsApp</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-foreground mb-1">WhatsApp</h3>
                 <p className="text-muted">+55 11 99999-9999</p>
               </div>
             </div>
@@ -26,7 +26,7 @@ export default function Contato() {
             <div className="flex items-start gap-4">
               <i className="bi bi-envelope text-2xl text-primary"></i>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-white mb-1">E-mail</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-foreground mb-1">E-mail</h3>
                 <p className="text-muted">contato@saulolyra.com.br</p>
               </div>
             </div>
@@ -38,17 +38,17 @@ export default function Contato() {
           <form className="space-y-6">
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Nome</label>
-              <input type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" />
+              <input type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
             </div>
             
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">E-mail</label>
-              <input type="email" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" />
+              <input type="email" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" />
             </div>
 
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Assunto</label>
-              <select className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none">
+              <select className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none">
                 <option>Imóveis</option>
                 <option>Oportunidades</option>
                 <option>Energia</option>
@@ -59,7 +59,7 @@ export default function Contato() {
 
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Mensagem</label>
-              <textarea rows={4} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"></textarea>
+              <textarea rows={4} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"></textarea>
             </div>
 
             <Button type="button" className="w-full">Enviar Mensagem</Button>
