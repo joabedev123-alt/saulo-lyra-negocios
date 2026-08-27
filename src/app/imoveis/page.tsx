@@ -51,7 +51,7 @@ export default function Imoveis() {
         </section>
       )}
 
-      <div className="max-w-7xl mx-auto w-full px-6 py-32 space-y-40">
+      <div className="max-w-7xl mx-auto w-full px-6 py-16 md:py-32 space-y-20 md:space-y-40">
         
         {/* 2. EMPREENDIMENTOS EM DESTAQUE */}
         <section>

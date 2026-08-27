@@ -61,8 +61,8 @@ export default async function PropertyPage({ params }: { params: { slug: string 
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16">
+      <section className="py-16 md:py-24 px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 md:gap-16">
           
           <div className="lg:col-span-2 space-y-12">
             {/* CARACTERISTICAS */}
