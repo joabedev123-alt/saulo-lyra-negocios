@@ -6,10 +6,10 @@ export interface PropertyCardProps {
   name: string;
   neighborhood: string;
   city: string;
-  bedrooms: number[];
+  bedrooms: number[] | string;
   areaMin: number;
   areaMax?: number;
-  parkingSpaces: number[];
+  parkingSpaces: number[] | string;
   category: string;
   imageUrl: string;
   slug: string;
@@ -32,13 +32,17 @@ export function PropertyCard({
     ? `${areaMin} a ${areaMax} m²`
     : `${areaMin} m²`;
 
-  const maxBedrooms = Math.max(...bedrooms);
-  const minBedrooms = Math.min(...bedrooms);
-  const formattedBedrooms = maxBedrooms !== minBedrooms 
-    ? `${minBedrooms} a ${maxBedrooms} quartos` 
-    : `${maxBedrooms} ${maxBedrooms === 1 ? 'quarto' : 'quartos'}`;
+  const formattedBedrooms = Array.isArray(bedrooms)
+    ? (Math.max(...bedrooms) !== Math.min(...bedrooms)
+      ? `${Math.min(...bedrooms)} a ${Math.max(...bedrooms)} suítes`
+      : `${Math.max(...bedrooms)} ${Math.max(...bedrooms) === 1 ? 'suíte' : 'suítes'}`)
+    : bedrooms;
 
-  const maxParking = Math.max(...parkingSpaces);
+  const formattedParking = Array.isArray(parkingSpaces)
+    ? (Math.max(...parkingSpaces) !== Math.min(...parkingSpaces)
+      ? `${Math.min(...parkingSpaces)} a ${Math.max(...parkingSpaces)} vagas`
+      : `${Math.max(...parkingSpaces)} ${Math.max(...parkingSpaces) === 1 ? 'vaga' : 'vagas'}`)
+    : parkingSpaces;
 
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-md bg-surface border border-border-light transition-all hover:border-primary/50 hover:shadow-lg">
@@ -59,7 +63,7 @@ export function PropertyCard({
       </div>
       
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-xl font-serif text-foreground mb-1">{name}</h3>
+        <h3 className="text-[22px] md:text-[25px] font-serif text-[#252525] mb-1">{name}</h3>
         <p className="text-sm text-muted mb-4">{neighborhood}, {city}</p>
         
         <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
@@ -73,13 +77,13 @@ export function PropertyCard({
           </div>
           <div className="flex items-center gap-1.5">
             <i className="bi bi-car-front text-primary"></i>
-            <span>{maxParking} {maxParking === 1 ? 'vaga' : 'vagas'}</span>
+            <span>{formattedParking}</span>
           </div>
         </div>
         
         <div className="mt-auto">
-          <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground">
-            Conhecer Empreendimento
+          <Button variant="outline" className="w-full text-sm group-hover:bg-primary group-hover:text-primary-foreground">
+            Ver detalhes →
           </Button>
         </div>
       </div>

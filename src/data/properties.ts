@@ -3,10 +3,10 @@ export interface Property {
   name: string;
   neighborhood: string;
   city: string;
-  bedrooms: number[];
+  bedrooms: number[] | string;
   areaMin: number;
   areaMax?: number;
-  parkingSpaces: number[];
+  parkingSpaces: number[] | string;
   category: string; // "Alto Padrão", "Luxo", etc
   status: string; // "Lançamento", "Em obras", "Pronto"
   stars: number;
@@ -36,13 +36,13 @@ export const properties: Property[] = [
   },
   {
     id: "havva-casa-piaui",
-    name: "Havva Casa Piauí",
-    neighborhood: "Jardim Europa/Pinheiros",
+    name: "Havva Higienópolis",
+    neighborhood: "Higienópolis",
     city: "São Paulo",
-    bedrooms: [3, 4],
-    areaMin: 200,
-    areaMax: 400,
-    parkingSpaces: [3, 5],
+    bedrooms: [4],
+    areaMin: 349,
+    areaMax: undefined,
+    parkingSpaces: [4, 5],
     category: "Luxo",
     status: "Lançamento",
     stars: 5,
@@ -56,10 +56,10 @@ export const properties: Property[] = [
     name: "Helbor Lens Moema",
     neighborhood: "Moema",
     city: "São Paulo",
-    bedrooms: [3, 4],
-    areaMin: 150,
-    areaMax: 250,
-    parkingSpaces: [2, 4],
+    bedrooms: [3],
+    areaMin: 157,
+    areaMax: 476,
+    parkingSpaces: [2, 3],
     category: "Alto padrão",
     status: "Breve lançamento",
     stars: 5,
@@ -90,10 +90,10 @@ export const properties: Property[] = [
     name: "Capri Lifestyle by Dolce&Gabbana",
     neighborhood: "Jardim Europa",
     city: "São Paulo",
-    bedrooms: [3, 4],
-    areaMin: 250,
-    areaMax: 500,
-    parkingSpaces: [4, 6],
+    bedrooms: [4],
+    areaMin: 246,
+    areaMax: 591,
+    parkingSpaces: "Conforme a unidade",
     category: "Luxo",
     status: "Lançamento",
     stars: 5,
@@ -107,7 +107,7 @@ export const properties: Property[] = [
     name: "Casa Madalena",
     neighborhood: "Vila Madalena",
     city: "São Paulo",
-    bedrooms: [4],
+    bedrooms: "4 suítes + office",
     areaMin: 355,
     areaMax: 636,
     parkingSpaces: [4, 5],
@@ -158,10 +158,10 @@ export const properties: Property[] = [
     name: "Lindenberg Vista Brooklin",
     neighborhood: "Brooklin",
     city: "São Paulo",
-    bedrooms: [3, 4],
-    areaMin: 200,
-    areaMax: 350,
-    parkingSpaces: [3, 5],
+    bedrooms: [4],
+    areaMin: 261,
+    areaMax: 520,
+    parkingSpaces: "4 a 5 vagas, conforme tipologia",
     category: "Luxo",
     status: "Em obras",
     stars: 5,
@@ -176,9 +176,9 @@ export const properties: Property[] = [
     neighborhood: "Moema",
     city: "São Paulo",
     bedrooms: [3, 4],
-    areaMin: 140,
-    areaMax: 220,
-    parkingSpaces: [2, 4],
+    areaMin: 215,
+    areaMax: 571,
+    parkingSpaces: "Vagas conforme tipologia",
     category: "Alto padrão",
     status: "Em obras",
     stars: 5,
@@ -301,5 +301,22 @@ export const properties: Property[] = [
     builder: "Gafisa",
     imageUrl: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?q=80&w=1000&auto=format&fit=crop",
     slug: "flow-by-gafisa",
+  },
+  {
+    id: "caminhos-da-lapa",
+    name: "Caminhos da Lapa",
+    neighborhood: "Lapa",
+    city: "São Paulo",
+    bedrooms: "Consulte configuração da unidade",
+    areaMin: 47,
+    areaMax: 156,
+    parkingSpaces: "Vagas conforme tipologia",
+    category: "Projeto Urbano",
+    status: "Lançamento e Em Obras",
+    stars: 5,
+    builder: "Tegra e Tegra Incorporadora",
+    imageUrl: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000&auto=format&fit=crop",
+    slug: "caminhos-da-lapa",
+    isHighlight: true,
   }
 ];

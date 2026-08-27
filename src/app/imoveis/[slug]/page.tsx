@@ -17,17 +17,21 @@ export default async function PropertyPage({ params }: { params: { slug: string 
     notFound();
   }
 
-  const maxBedrooms = Math.max(...property.bedrooms);
-  const minBedrooms = Math.min(...property.bedrooms);
-  const formattedBedrooms = maxBedrooms !== minBedrooms 
-    ? `${minBedrooms} a ${maxBedrooms} quartos` 
-    : `${maxBedrooms} ${maxBedrooms === 1 ? 'quarto' : 'quartos'}`;
+  const formattedBedrooms = Array.isArray(property.bedrooms)
+    ? (Math.max(...property.bedrooms) !== Math.min(...property.bedrooms)
+      ? `${Math.min(...property.bedrooms)} a ${Math.max(...property.bedrooms)} suítes`
+      : `${Math.max(...property.bedrooms)} ${Math.max(...property.bedrooms) === 1 ? 'suíte' : 'suítes'}`)
+    : property.bedrooms;
 
   const formattedArea = property.areaMax && property.areaMax !== property.areaMin 
     ? `${property.areaMin} a ${property.areaMax} m²`
     : `${property.areaMin} m²`;
 
-  const maxParking = Math.max(...property.parkingSpaces);
+  const formattedParking = Array.isArray(property.parkingSpaces)
+    ? (Math.max(...property.parkingSpaces) !== Math.min(...property.parkingSpaces)
+      ? `${Math.min(...property.parkingSpaces)} a ${Math.max(...property.parkingSpaces)} vagas`
+      : `${Math.max(...property.parkingSpaces)} ${Math.max(...property.parkingSpaces) === 1 ? 'vaga' : 'vagas'}`)
+    : property.parkingSpaces;
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -48,7 +52,7 @@ export default async function PropertyPage({ params }: { params: { slug: string 
           <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6">
             {property.category} • {property.status}
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-2">
+          <h1 className="text-4xl md:text-[52px] lg:text-[60px] font-serif text-[#252525] mb-2 leading-tight">
             {property.name}
           </h1>
           <p className="text-xl text-foreground font-serif">
@@ -68,12 +72,12 @@ export default async function PropertyPage({ params }: { params: { slug: string 
                 <span className="text-lg text-foreground">{formattedArea}</span>
               </div>
               <div>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground block mb-2">Dormitórios</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground block mb-2">Suítes</span>
                 <span className="text-lg text-foreground">{formattedBedrooms}</span>
               </div>
               <div>
                 <span className="text-xs uppercase tracking-widest text-muted-foreground block mb-2">Vagas</span>
-                <span className="text-lg text-foreground">{maxParking}</span>
+                <span className="text-lg text-foreground">{formattedParking}</span>
               </div>
               <div>
                 <span className="text-xs uppercase tracking-widest text-muted-foreground block mb-2">Status</span>
@@ -83,7 +87,7 @@ export default async function PropertyPage({ params }: { params: { slug: string 
 
             {/* DESCRICAO */}
             <div>
-              <h2 className="text-2xl font-serif text-foreground mb-6 uppercase">Sobre o Empreendimento</h2>
+              <h2 className="text-3xl md:text-[34px] lg:text-[40px] font-serif text-[#252525] mb-6 uppercase">Sobre o Empreendimento</h2>
               <div className="space-y-4 text-foreground leading-relaxed">
                 <p>
                   O {property.name} é um projeto exclusivo idealizado pela {property.builder} e localizado em um dos endereços mais privilegiados de {property.city} ({property.neighborhood}). 
@@ -99,7 +103,7 @@ export default async function PropertyPage({ params }: { params: { slug: string 
           {/* FORMULARIO */}
           <div className="lg:col-span-1">
             <div className="bg-surface p-8 border border-border-light sticky top-32">
-              <h3 className="text-xl font-serif text-foreground mb-2 uppercase">Interesse no Empreendimento</h3>
+              <h3 className="text-[22px] md:text-[25px] font-serif text-[#252525] mb-2 uppercase">Interesse no Empreendimento</h3>
               <p className="text-sm text-muted mb-8">
                 Preencha seus dados para receber disponibilidade, plantas e condições do {property.name}.
               </p>

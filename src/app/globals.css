@@ -54,7 +54,7 @@
   --color-ring: var(--ring);
 
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-cormorant);
 
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
@@ -71,7 +71,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight text-foreground;
+    @apply font-serif tracking-tight text-[#252525];
   }
 
   /* Microinterações e Performance - prefers-reduced-motion */
