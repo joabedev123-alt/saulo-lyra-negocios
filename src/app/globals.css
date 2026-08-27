@@ -16,10 +16,10 @@
   --border: #E5E5E5; /* Borda bem sutil clara */
   --border-light: #D4D4D4;
   
-  --primary: #A78936; /* Dourado principal */
-  --primary-foreground: #050505;
-  --secondary: #C2A76B; /* Dourado champagne */
-  --secondary-foreground: #050505;
+  --primary: #856015; /* Dourado mais escuro e contrastante */
+  --primary-foreground: #FFFFFF;
+  --secondary: #A07820; /* Dourado secundário levemente mais escuro */
+  --secondary-foreground: #FFFFFF;
 
   --accent: #171717;
   --accent-foreground: #FAF9F6;
