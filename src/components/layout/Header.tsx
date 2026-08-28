@@ -50,7 +50,7 @@ export function Header() {
               alt="Saulo Lyra Negócios e Participações" 
               width={250} 
               height={80} 
-              className="h-full w-auto object-contain transition-all brightness-0 scale-150 transform origin-left" 
+              className="h-full w-auto object-contain transition-all brightness-0 scale-[1.40] transform origin-left" 
             />
           </Link>
         </div>
