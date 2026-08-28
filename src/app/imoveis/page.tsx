@@ -1,106 +1,139 @@
-import { PropertyCard } from "@/components/shared/PropertyCard";
-import { properties } from "@/data/properties";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+
 import { Button } from "@/components/ui/Button";
+import { FormEvent, useState } from "react";
 
 export default function Imoveis() {
-  const heritage = properties.find(p => p.id === "heritage-riviera");
-  const destaques = properties.filter(p => p.isHighlight && p.id !== "heritage-riviera");
-  const prontos = properties.filter(p => p.status === "Pronto");
-  const lancamentos = properties.filter(p => p.status.toLowerCase().includes("lançamento"));
+  const [formData, setFormData] = useState({
+    nome: "",
+    email: "",
+    telefone: "",
+    tipoImovel: "Casa",
+    tamanho: "",
+    quartos: "3",
+    vagas: "2",
+    regiao: "",
+    valorInvestimento: "",
+    detalhes: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    const text = `*Ficha de Busca de Imóvel*\n\n` +
+      `*Nome:* ${formData.nome}\n` +
+      `*E-mail:* ${formData.email}\n` +
+      `*Telefone:* ${formData.telefone}\n` +
+      `*Tipo:* ${formData.tipoImovel}\n` +
+      `*Tamanho Buscado:* ${formData.tamanho} m²\n` +
+      `*Quartos:* ${formData.quartos}\n` +
+      `*Vagas:* ${formData.vagas}\n` +
+      `*Região de Interesse:* ${formData.regiao}\n` +
+      `*Valor de Investimento:* ${formData.valorInvestimento}\n` +
+      `*Detalhes:* ${formData.detalhes}`;
+
+    const encodedText = encodeURIComponent(text);
+    // Número de WhatsApp real
+    const whatsappNumber = "5511959914192"; 
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, "_blank");
+  };
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      
-      {/* 1. DESTAQUE ESPECIAL */}
-      {heritage && (
-        <section className="relative min-h-[70vh] flex items-center pt-24 pb-12 px-6 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={heritage.imageUrl}
-              alt={heritage.name}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]" />
-          </div>
-          
-          <div className="relative z-10 max-w-7xl mx-auto w-full">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6">
-                <i className="bi bi-star-fill"></i> Destaque
-              </span>
-              <h1 className="text-4xl md:text-[52px] lg:text-[60px] font-serif text-[#252525] mb-2 uppercase leading-tight">
-                {heritage.name}
-              </h1>
-              <h2 className="text-xl font-serif text-foreground mb-8">
-                {heritage.builder} {heritage.city} — SP
-              </h2>
-              <p className="text-lg text-foreground max-w-xl mb-10">
-                Uma curadoria de oportunidades imobiliárias para quem exige o extraordinário.
-              </p>
-              <Link href={`/imoveis/${heritage.slug}`}>
-                <Button size="lg" className="uppercase tracking-widest text-sm">
-                  Ver detalhes →
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <div className="max-w-7xl mx-auto w-full px-6 py-16 md:py-32 space-y-20 md:space-y-40">
+    <div className="flex flex-col min-h-screen bg-background pt-24">
+      <div className="max-w-4xl mx-auto w-full px-6 py-12 lg:py-16">
         
-        {/* 2. EMPREENDIMENTOS EM DESTAQUE */}
-        <section>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-[34px] lg:text-[40px] font-serif text-[#252525] mb-2 uppercase">Imóveis Selecionados</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destaques.map(p => (
-              <PropertyCard key={p.id} {...p} />
-            ))}
-          </div>
-        </section>
-
-        {/* 3. IMÓVEIS PRONTOS */}
-        <section>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-[34px] lg:text-[40px] font-serif text-[#252525] mb-2 uppercase">Prontos para morar</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {prontos.map(p => (
-              <PropertyCard key={p.id} {...p} />
-            ))}
-          </div>
-        </section>
-
-        {/* 4. LANÇAMENTOS */}
-        <section>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-[34px] lg:text-[40px] font-serif text-[#252525] mb-2 uppercase">Lançamentos</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {lancamentos.map(p => (
-              <PropertyCard key={p.id} {...p} />
-            ))}
-          </div>
-        </section>
-
-        {/* 5. OPORTUNIDADES EXCLUSIVAS */}
-        <section className="bg-surface p-12 md:p-32 border border-border-light text-center">
-          <h2 className="text-3xl md:text-[34px] lg:text-[40px] font-serif text-[#252525] mb-6 uppercase">Oportunidades Exclusivas</h2>
-          <p className="text-lg text-foreground max-w-2xl mx-auto mb-10">
-            Imóveis e oportunidades de acesso restrito.
+        <div className="text-center mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-[52px] font-serif text-[#252525] mb-6 uppercase leading-tight">
+            Encontre o Seu Imóvel
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Preencha a ficha abaixo com suas preferências. Nossa equipe fará uma busca refinada para encontrar opções exclusivas que combinem com o seu estilo de vida.
           </p>
-          <Link href="/contato">
-            <Button size="lg" variant="outline" className="uppercase tracking-widest text-xs">
-              Falar com um Consultor
+        </div>
+
+        <div className="bg-surface p-6 md:p-8 lg:p-12 border border-border-light rounded-md shadow-sm">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            
+            {/* Dados Pessoais */}
+            <div>
+              <h3 className="text-lg font-serif uppercase mb-4 border-b border-border-light pb-2">Dados Pessoais</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="md:col-span-2">
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Nome Completo</label>
+                  <input required name="nome" value={formData.nome} onChange={handleChange} type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Seu nome" />
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">E-mail</label>
+                  <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="seu@email.com" />
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Telefone / WhatsApp</label>
+                  <input required name="telefone" value={formData.telefone} onChange={handleChange} type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="(11) 95991-4192" />
+                </div>
+              </div>
+            </div>
+
+            {/* Preferências do Imóvel */}
+            <div>
+              <h3 className="text-lg font-serif uppercase mb-4 border-b border-border-light pb-2">O que você procura?</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Tipo de Imóvel</label>
+                  <select name="tipoImovel" value={formData.tipoImovel} onChange={handleChange} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none">
+                    <option>Casa</option>
+                    <option>Apartamento</option>
+                    <option>Terreno</option>
+                    <option>Cobertura</option>
+                    <option>Imóvel Comercial</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Tamanho Desejado (m²)</label>
+                  <input name="tamanho" value={formData.tamanho} onChange={handleChange} type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Ex: 250m²" />
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Quartos</label>
+                  <select name="quartos" value={formData.quartos} onChange={handleChange} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5+</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Vagas de Garagem</label>
+                  <select name="vagas" value={formData.vagas} onChange={handleChange} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4+</option>
+                  </select>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Região / Bairro de Interesse</label>
+                  <input required name="regiao" value={formData.regiao} onChange={handleChange} type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Ex: Jardins, Itaim Bibi, Pinheiros..." />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Valor Desejado para Investimento</label>
+                  <input name="valorInvestimento" value={formData.valorInvestimento} onChange={handleChange} type="text" className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Ex: Até R$ 2.000.000" />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="text-xs uppercase tracking-widest text-muted-foreground mb-2 block">Detalhes Adicionais</label>
+                  <textarea name="detalhes" value={formData.detalhes} onChange={handleChange} rows={4} className="w-full bg-background border border-border-light rounded-md px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Descreva mais detalhes sobre o imóvel dos seus sonhos..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <Button type="submit" size="lg" className="w-full py-6 text-sm uppercase tracking-widest font-bold">
+              Enviar Solicitação <i className="bi bi-whatsapp ml-2"></i>
             </Button>
-          </Link>
-        </section>
+          </form>
+        </div>
 
       </div>
     </div>

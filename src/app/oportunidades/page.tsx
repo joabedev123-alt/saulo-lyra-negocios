@@ -1,6 +1,16 @@
 import { PropertyCard } from "@/components/shared/PropertyCard";
+import { properties } from "@/data/properties";
 
 export default function Oportunidades() {
+  const oportunidadesIds = [
+    "havva-casa-piaui",
+    "helbor-lens-moema",
+    "lindenberg-alto-das-nacoes",
+    "agami-park-residences"
+  ];
+
+  const oportunidades = properties.filter(p => oportunidadesIds.includes(p.id));
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* HERO */}
@@ -21,30 +31,23 @@ export default function Oportunidades() {
       {/* GRID DE OPORTUNIDADES */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <PropertyCard
-              name="Fasano Itaim"
-              neighborhood="Itaim Bibi"
-              city="São Paulo"
-              bedrooms={[1, 2]}
-              areaMin={110}
-              areaMax={140}
-              parkingSpaces={[2]}
-              category="Condição Especial"
-              imageUrl="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
-              slug="fasano-itaim-oportunidade"
-            />
-            <PropertyCard
-              name="VN Urupema"
-              neighborhood="Vila Madalena"
-              city="São Paulo"
-              bedrooms={[1]}
-              areaMin={45}
-              parkingSpaces={[1]}
-              category="Última Unidade"
-              imageUrl="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
-              slug="vn-urupema-oportunidade"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {oportunidades.map(p => (
+              <PropertyCard
+                key={p.id}
+                name={p.name}
+                neighborhood={p.neighborhood}
+                city={p.city}
+                bedrooms={p.bedrooms}
+                areaMin={p.areaMin}
+                areaMax={p.areaMax}
+                parkingSpaces={p.parkingSpaces}
+                category={p.category}
+                imageUrl={p.imageUrl}
+                gallery={p.gallery}
+                slug={p.slug}
+              />
+            ))}
           </div>
         </div>
       </section>

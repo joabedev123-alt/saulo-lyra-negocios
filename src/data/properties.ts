@@ -12,6 +12,7 @@ export interface Property {
   stars: number;
   builder: string;
   imageUrl: string;
+  gallery?: string[];
   slug: string;
   isHighlight?: boolean;
 }
@@ -30,7 +31,7 @@ export const properties: Property[] = [
     status: "Lançamento",
     stars: 5,
     builder: "Cyrela",
-    imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/imagens/heritage.jpeg",
     slug: "heritage-riviera",
     isHighlight: true,
   },
@@ -47,7 +48,7 @@ export const properties: Property[] = [
     status: "Lançamento",
     stars: 5,
     builder: "Gafisa",
-    imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/imagens/Havva Higienópolis.jpeg",
     slug: "havva-casa-piaui",
     isHighlight: true,
   },
@@ -64,7 +65,8 @@ export const properties: Property[] = [
     status: "Breve lançamento",
     stars: 5,
     builder: "Helbor",
-    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/imagens/Lens Moema.jpeg",
+    gallery: ["/imagens/01.jpeg", "/imagens/Lens Moema 02.jpeg", "/imagens/Lens Moema.jpeg"],
     slug: "helbor-lens-moema",
     isHighlight: true,
   },
@@ -81,7 +83,7 @@ export const properties: Property[] = [
     status: "Em obras",
     stars: 5,
     builder: "Lindenberg",
-    imageUrl: "https://images.unsplash.com/photo-1600566753086-00f18efc2291?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/imagens/Lindenberg Alto das Nações.jpeg",
     slug: "lindenberg-alto-das-nacoes",
     isHighlight: true,
   },
@@ -175,15 +177,22 @@ export const properties: Property[] = [
     name: "Agami Park Residences",
     neighborhood: "Moema",
     city: "São Paulo",
-    bedrooms: [3, 4],
+    bedrooms: "3 e 4 suítes",
     areaMin: 215,
     areaMax: 571,
-    parkingSpaces: "Vagas conforme tipologia",
+    parkingSpaces: "Vagas conforme tipologia.",
     category: "Alto padrão",
     status: "Em obras",
     stars: 5,
     builder: "EZTEC",
-    imageUrl: "https://images.unsplash.com/photo-1600566753086-00f18efc2291?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.30.jpeg",
+    gallery: [
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.30.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.28.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.29.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.36.17.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.44.05.jpeg"
+    ],
     slug: "agami-park-residences",
     isHighlight: true,
   },

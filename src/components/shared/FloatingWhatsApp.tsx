@@ -10,7 +10,7 @@ interface FloatingWhatsAppProps {
 }
 
 export function FloatingWhatsApp({
-  phoneNumber = "5511999999999", // Placeholder
+  phoneNumber = "5511959914192", // Real number
   defaultMessage = "Olá! Vim pelo site da Saulo Lyra Negócios e Participações e gostaria de receber mais informações.",
 }: FloatingWhatsAppProps) {
   

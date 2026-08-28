@@ -8,23 +8,12 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop"
-            alt="Hero Architecture"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]" />
-        </div>
-        
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-background">
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
           <span className="text-primary tracking-[0.2em] text-xs font-semibold uppercase mb-6 flex items-center justify-center gap-2">
             <i className="bi bi-star-fill"></i> Lançamento em Destaque
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground leading-tight mb-2 uppercase">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif text-foreground leading-tight mb-2 uppercase">
             Heritage Riviera
           </h1>
           <h2 className="text-2xl font-serif text-foreground mb-8">
@@ -41,14 +30,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-foreground">
-          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-foreground/50 to-transparent" />
-        </div>
+
       </section>
 
       {/* 2. INSTITUCIONAL */}
-      <section className="py-24 md:py-32 px-6 bg-background">
+      <section className="py-16 md:py-20 px-6 bg-background">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-primary tracking-widest text-xs font-semibold uppercase mb-6 block">
             Saulo Lyra Negócios e Participações
@@ -67,33 +53,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. DOIS PILARES */}
-      <section className="grid md:grid-cols-2">
-        <div className="relative min-h-[60vh] flex items-center p-12 lg:p-24 group overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1600607687931-ceeb8d145c36?q=80&w=2000&auto=format&fit=crop"
-              alt="Negócios Imobiliários"
-              fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-white/40 transition-colors duration-500 group-hover:bg-white/30" />
-          </div>
-          <div className="relative z-10 max-w-md">
-            <span className="text-primary text-xs tracking-widest uppercase mb-4 block">01 — Negócios Imobiliários</span>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
-              IMÓVEIS QUE REPRESENTAM MAIS DO QUE UM ENDEREÇO.
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Lançamentos e empreendimentos novos selecionados para morar, investir e construir patrimônio.
-            </p>
-            <Link href="/imoveis">
-              <Button variant="outline">Explorar Imóveis</Button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="relative min-h-[60vh] flex items-center p-12 lg:p-24 group overflow-hidden">
+      {/* 3. UM PILAR (ENERGIA) */}
+      <section className="grid md:grid-cols-1">
+        <div className="relative min-h-[50vh] flex items-center justify-center p-6 md:p-12 lg:p-16 group overflow-hidden text-center">
           <div className="absolute inset-0 z-0">
             <Image
               src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2000&auto=format&fit=crop"
@@ -103,7 +65,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-white/40 transition-colors duration-500 group-hover:bg-white/30" />
           </div>
-          <div className="relative z-10 max-w-md">
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
             <span className="text-primary text-xs tracking-widest uppercase mb-4 block">02 — Energia</span>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
               ENERGIA TRATADA COMO DECISÃO ESTRATÉGICA.
@@ -119,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* 4. DESTAQUES */}
-      <section className="py-24 md:py-32 px-6 bg-surface">
+      <section className="py-16 md:py-20 px-6 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-2xl">
@@ -135,7 +97,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
             {properties
-              .filter(p => ["havva-casa-piaui", "helbor-lens-moema", "lindenberg-alto-das-nacoes", "capri-lifestyle-dolce-gabbana"].includes(p.id))
+              .filter(p => ["lens-moema", "agami-park-residences"].includes(p.id))
               .map(p => (
                 <PropertyCard
                   key={p.id}
@@ -178,7 +140,7 @@ export default function Home() {
 
       {/* 5. CAPTAÇÃO / OPORTUNIDADES */}
       <section className="grid lg:grid-cols-2">
-        <div className="bg-primary/5 p-12 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border-light">
+        <div className="bg-primary/5 p-6 md:p-10 lg:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border-light">
           <span className="text-primary text-xs tracking-widest uppercase mb-6 block">Curadoria</span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
             NOVAS OPORTUNIDADES. NO MOMENTO CERTO.
@@ -187,7 +149,7 @@ export default function Home() {
             As melhores condições frequentemente surgem antes mesmo de você começar a procurar. Cadastre suas preferências e deixe-nos apresentar possibilidades alinhadas ao seu perfil.
           </p>
         </div>
-        <div className="p-12 lg:p-24 bg-surface flex flex-col justify-center">
+        <div className="p-6 md:p-10 lg:p-16 bg-surface flex flex-col justify-center">
           <h3 className="text-2xl font-serif text-foreground mb-2">RECEBA OPORTUNIDADES</h3>
           <p className="text-muted mb-8">Defina seu perfil de interesse.</p>
           
@@ -224,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* 6. NÚMEROS / AUTORIDADE */}
-      <section className="py-16 border-y border-border-light bg-background">
+      <section className="py-12 border-y border-border-light bg-background">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-border-light/50">
           <div className="flex flex-col">
             <span className="text-3xl md:text-5xl font-serif text-primary mb-2">2013</span>
@@ -246,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* 7. CTA FINAL */}
-      <section className="relative py-32 px-6 flex items-center justify-center overflow-hidden">
+      <section className="relative py-20 px-6 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"

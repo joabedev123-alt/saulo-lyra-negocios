@@ -19,7 +19,7 @@ export default function Contato() {
               <i className="bi bi-whatsapp text-2xl text-primary"></i>
               <div>
                 <h3 className="text-sm font-semibold uppercase tracking-widest text-foreground mb-1">WhatsApp</h3>
-                <p className="text-muted">+55 11 99999-9999</p>
+                <p className="text-muted">+55 11 95991-4192</p>
               </div>
             </div>
             
