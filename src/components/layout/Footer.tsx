@@ -11,9 +11,9 @@ export function Footer() {
               <Image 
                 src="/logo 02.png"
                 alt="Saulo Lyra Negócios e Participações" 
-                width={250} 
-                height={80} 
-                className="h-20 md:h-24 w-auto object-contain brightness-0" 
+                width={600} 
+                height={200} 
+                className="h-32 md:h-48 w-auto object-contain brightness-0" 
               />
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -26,7 +26,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-muted">
               <li><Link href="/quem-somos" className="hover:text-primary transition-colors">Quem Somos</Link></li>
               <li><Link href="/imoveis" className="hover:text-primary transition-colors">Imóveis</Link></li>
-              <li><Link href="/oportunidades" className="hover:text-primary transition-colors">Oportunidades</Link></li>
+
               <li><Link href="/energia" className="hover:text-primary transition-colors">Energia</Link></li>
               <li><Link href="/projetos" className="hover:text-primary transition-colors">Projetos Especiais</Link></li>
             </ul>

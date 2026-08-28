@@ -6,20 +6,10 @@ export default function QuemSomos() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* HERO */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
-            alt="Sobre a empresa"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/40" />
-        </div>
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 flex items-center justify-center bg-surface/30 border-b border-border-light">
         
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-24">
-          <span className="text-primary tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
+        <div className="text-center px-6 max-w-4xl mx-auto">
+          <span className="text-foreground tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
             Quem Somos
           </span>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground leading-tight mb-8 uppercase">
@@ -79,15 +69,15 @@ export default function QuemSomos() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-12 border border-border-light bg-surface/50 hover:border-primary/50 transition-colors">
-              <h3 className="text-xl font-serif text-primary mb-4">Experiência</h3>
+              <h3 className="text-xl font-serif text-foreground mb-4">Experiência</h3>
               <p className="text-sm text-foreground">para identificar oportunidades.</p>
             </div>
             <div className="p-12 border border-border-light bg-surface/50 hover:border-primary/50 transition-colors">
-              <h3 className="text-xl font-serif text-primary mb-4">Estratégia</h3>
+              <h3 className="text-xl font-serif text-foreground mb-4">Estratégia</h3>
               <p className="text-sm text-foreground">para estruturar negócios.</p>
             </div>
             <div className="p-12 border border-border-light bg-surface/50 hover:border-primary/50 transition-colors">
-              <h3 className="text-xl font-serif text-primary mb-4">Relacionamento</h3>
+              <h3 className="text-xl font-serif text-foreground mb-4">Relacionamento</h3>
               <p className="text-sm text-foreground">para conectar as pessoas certas.</p>
             </div>
           </div>
@@ -97,7 +87,7 @@ export default function QuemSomos() {
       {/* CLOSING CTA */}
       <section className="py-32 px-6 bg-surface border-y border-border-light text-center">
         <div className="max-w-3xl mx-auto">
-          <span className="text-primary font-serif text-2xl block mb-4">Saulo Lyra Negócios e Participações</span>
+          <span className="text-foreground font-serif text-2xl block mb-4">Saulo Lyra Negócios e Participações</span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-12 leading-tight">
             CONECTANDO OPORTUNIDADES, PATRIMÔNIO E GRANDES NEGÓCIOS.
           </h2>

@@ -11,7 +11,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Quem Somos", href: "/quem-somos" },
   { name: "Imóveis", href: "/imoveis" },
-  { name: "Oportunidades", href: "/oportunidades" },
+
   { name: "Energia", href: "/energia" },
   { name: "Projetos", href: "/projetos" },
   { name: "Contato", href: "/contato" },
@@ -37,20 +37,20 @@ export function Header() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled 
             ? "-translate-y-full opacity-0 pointer-events-none" 
-            : "translate-y-0 opacity-100 bg-transparent py-6"
+            : "translate-y-0 opacity-100 bg-background border-b border-border-light shadow-sm"
         )}
       >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 h-20 md:h-24">
         
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center">
+        <div className="flex lg:flex-1 h-full">
+          <Link href="/" className="flex items-center h-full">
             <span className="sr-only">Saulo Lyra Negócios e Participações</span>
             <Image 
               src="/logo 02.png"
               alt="Saulo Lyra Negócios e Participações" 
               width={250} 
               height={80} 
-              className="h-16 md:h-20 w-auto object-contain transition-all brightness-0" 
+              className="h-full w-auto object-contain transition-all brightness-0 scale-150 transform origin-left" 
             />
           </Link>
         </div>
@@ -107,9 +107,9 @@ export function Header() {
               <Image 
                 src="/logo 02.png"
                 alt="Saulo Lyra Negócios e Participações" 
-                width={200} 
-                height={64} 
-                className="h-16 w-auto object-contain brightness-0" 
+                width={500} 
+                height={160} 
+                className="h-28 w-auto object-contain brightness-0" 
               />
             </Link>
             <button

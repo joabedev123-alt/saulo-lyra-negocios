@@ -6,20 +6,9 @@ export default function Energia() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2000&auto=format&fit=crop"
-            alt="Inteligência Energética"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/40" />
-        </div>
-        
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <span className="text-primary tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 flex items-center justify-center bg-surface/30 border-b border-border-light">
+        <div className="text-center px-6 max-w-4xl mx-auto">
+          <span className="text-foreground tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
             Inteligência Energética
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight mb-8">

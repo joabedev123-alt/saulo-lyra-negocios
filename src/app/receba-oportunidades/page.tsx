@@ -6,7 +6,7 @@ export default function RecebaOportunidades() {
     <div className="flex flex-col min-h-screen bg-background pt-24">
       <div className="max-w-4xl mx-auto w-full px-6 py-12 lg:py-24 text-center">
         
-        <span className="text-primary tracking-widest text-xs font-semibold uppercase mb-6 block">
+        <span className="text-foreground tracking-widest text-xs font-semibold uppercase mb-6 block">
           Curadoria Exclusiva
         </span>
         <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">

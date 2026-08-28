@@ -8,35 +8,48 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-background">
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-          <span className="text-primary tracking-[0.2em] text-xs font-semibold uppercase mb-6 flex items-center justify-center gap-2">
-            <i className="bi bi-star-fill"></i> Lançamento em Destaque
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif text-foreground leading-tight mb-2 uppercase">
-            Heritage Riviera
-          </h1>
-          <h2 className="text-2xl font-serif text-foreground mb-8">
-            Cyrela Porto Feliz | Interior de São Paulo
-          </h2>
-          <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto mb-12 font-light">
-            Um novo endereço para quem busca exclusividade, sofisticação e qualidade de vida.
-          </p>
+      <section className="relative min-h-[60vh] py-16 md:py-20 flex items-center bg-background overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/imoveis/heritage-riviera">
-              <Button size="lg" className="w-full sm:w-auto uppercase tracking-widest text-xs">Conheça o Empreendimento</Button>
-            </Link>
+          {/* TEXTO */}
+          <div className="flex flex-col items-start text-left order-2 md:order-1">
+            <span className="text-foreground tracking-[0.2em] text-xs font-semibold uppercase mb-4 flex items-center gap-2">
+              <i className="bi bi-star-fill text-primary"></i> Lançamento em Destaque
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight mb-2 uppercase">
+              Heritage Riviera
+            </h1>
+            <h2 className="text-xl md:text-2xl font-serif text-foreground/80 mb-6">
+              Cyrela Porto Feliz | Interior de São Paulo
+            </h2>
+            <p className="text-base md:text-lg text-foreground/90 max-w-md mb-8 font-light">
+              Um novo endereço para quem busca exclusividade, sofisticação e qualidade de vida.
+            </p>
+            <div className="w-full sm:w-auto">
+              <Link href="/imoveis/heritage-riviera">
+                <Button size="lg" className="w-full uppercase tracking-widest text-xs">Conheça o Empreendimento</Button>
+              </Link>
+            </div>
           </div>
+
+          {/* IMAGEM */}
+          <div className="relative w-full h-[300px] md:h-[500px] order-1 md:order-2 rounded-lg overflow-hidden shadow-xl border border-border-light/30">
+            <Image
+              src="/imagens/heritage.jpeg"
+              alt="Heritage Riviera"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
         </div>
-
-
       </section>
 
       {/* 2. INSTITUCIONAL */}
       <section className="py-16 md:py-20 px-6 bg-background">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-primary tracking-widest text-xs font-semibold uppercase mb-6 block">
+          <span className="text-foreground tracking-widest text-xs font-semibold uppercase mb-6 block">
             Saulo Lyra Negócios e Participações
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
@@ -46,37 +59,26 @@ export default function Home() {
             Uma estrutura de negócios voltada à identificação e conexão de clientes com oportunidades selecionadas nos mercados imobiliário e empresarial. Atuando com solidez e inteligência desde 2013.
           </p>
           <div className="flex justify-center">
-            <Link href="/quem-somos" className="group inline-flex items-center gap-2 text-sm uppercase tracking-widest text-primary hover:text-foreground transition-colors">
-              Conheça nossa trajetória <i className="bi bi-arrow-right transition-transform group-hover:translate-x-1"></i>
+            <Link href="/quem-somos" className="group inline-flex items-center gap-2 text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors">
+              Conheça nossa trajetória <i className="bi bi-arrow-right text-primary transition-transform group-hover:translate-x-1"></i>
             </Link>
           </div>
         </div>
       </section>
 
       {/* 3. UM PILAR (ENERGIA) */}
-      <section className="grid md:grid-cols-1">
-        <div className="relative min-h-[50vh] flex items-center justify-center p-6 md:p-12 lg:p-16 group overflow-hidden text-center">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2000&auto=format&fit=crop"
-              alt="Energia"
-              fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-white/40 transition-colors duration-500 group-hover:bg-white/30" />
-          </div>
-          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-            <span className="text-primary text-xs tracking-widest uppercase mb-4 block">02 — Energia</span>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
-              ENERGIA TRATADA COMO DECISÃO ESTRATÉGICA.
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Soluções para empresas e indústrias que buscam eficiência, previsibilidade e novas possibilidades no Mercado Livre de Energia.
-            </p>
-            <Link href="/energia">
-              <Button variant="outline">Conhecer Soluções</Button>
-            </Link>
-          </div>
+      <section className="py-16 md:py-24 px-6 bg-surface/50 border-t border-border-light">
+        <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+          <span className="text-foreground text-xs tracking-widest uppercase mb-4 block">Energia</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
+            ENERGIA TRATADA COMO DECISÃO ESTRATÉGICA.
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            Soluções para empresas e indústrias que buscam eficiência, previsibilidade e novas possibilidades no Mercado Livre de Energia.
+          </p>
+          <Link href="/energia">
+            <Button variant="outline">Conhecer Soluções</Button>
+          </Link>
         </div>
       </section>
 
@@ -95,9 +97,9 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {properties
-              .filter(p => ["lens-moema", "agami-park-residences"].includes(p.id))
+              .filter(p => ["heritage-riviera", "havva-casa-piaui", "lens-moema"].includes(p.id))
               .map(p => (
                 <PropertyCard
                   key={p.id}
@@ -110,6 +112,7 @@ export default function Home() {
                   parkingSpaces={p.parkingSpaces}
                   category={p.category}
                   imageUrl={p.imageUrl}
+                  gallery={p.gallery}
                   slug={p.slug}
                 />
               ))}
@@ -141,7 +144,7 @@ export default function Home() {
       {/* 5. CAPTAÇÃO / OPORTUNIDADES */}
       <section className="grid lg:grid-cols-2">
         <div className="bg-primary/5 p-6 md:p-10 lg:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border-light">
-          <span className="text-primary text-xs tracking-widest uppercase mb-6 block">Curadoria</span>
+          <span className="text-foreground text-xs tracking-widest uppercase mb-6 block">Curadoria</span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
             NOVAS OPORTUNIDADES. NO MOMENTO CERTO.
           </h2>
@@ -189,37 +192,27 @@ export default function Home() {
       <section className="py-12 border-y border-border-light bg-background">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-border-light/50">
           <div className="flex flex-col">
-            <span className="text-3xl md:text-5xl font-serif text-primary mb-2">2013</span>
+            <span className="text-3xl md:text-5xl font-serif text-foreground mb-2">2013</span>
             <span className="text-xs uppercase tracking-widest text-muted">Fundação</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-3xl md:text-5xl font-serif text-primary mb-2">13</span>
+            <span className="text-3xl md:text-5xl font-serif text-foreground mb-2">13</span>
             <span className="text-xs uppercase tracking-widest text-muted">Anos de Mercado</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-3xl md:text-5xl font-serif text-primary mb-2 text-nowrap">54630-J</span>
+            <span className="text-3xl md:text-5xl font-serif text-foreground mb-2 text-nowrap">54630-J</span>
             <span className="text-xs uppercase tracking-widest text-muted">CRECI/SP</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-3xl md:text-5xl font-serif text-primary mb-2">02</span>
+            <span className="text-3xl md:text-5xl font-serif text-foreground mb-2">02</span>
             <span className="text-xs uppercase tracking-widest text-muted">Áreas Estratégicas</span>
           </div>
         </div>
       </section>
 
       {/* 7. CTA FINAL */}
-      <section className="relative py-20 px-6 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
-            alt="CTA Background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-white/40" />
-        </div>
-        
-        <div className="relative z-10 text-center max-w-3xl mx-auto">
+      <section className="py-20 px-6 flex items-center justify-center bg-surface">
+        <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
             A PRÓXIMA OPORTUNIDADE PODE COMEÇAR AQUI.
           </h2>

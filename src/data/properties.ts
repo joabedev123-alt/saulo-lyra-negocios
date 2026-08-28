@@ -34,6 +34,16 @@ export const properties: Property[] = [
     imageUrl: "/imagens/heritage.jpeg",
     slug: "heritage-riviera",
     isHighlight: true,
+    gallery: [
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.36.17.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.28.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.28 (1).jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.29.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.29 (1).jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.30.jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.30 (1).jpeg",
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.44.05.jpeg"
+    ],
   },
   {
     id: "havva-casa-piaui",
@@ -51,6 +61,10 @@ export const properties: Property[] = [
     imageUrl: "/imagens/Havva Higienópolis.jpeg",
     slug: "havva-casa-piaui",
     isHighlight: true,
+    gallery: [
+      "/imagens/Havva Higienópolis.jpeg",
+      "/imagens/Lens Moema 02.jpeg"
+    ],
   },
   {
     id: "lens-moema",
@@ -66,7 +80,7 @@ export const properties: Property[] = [
     stars: 5,
     builder: "Helbor",
     imageUrl: "/imagens/Lens Moema.jpeg",
-    gallery: ["/imagens/01.jpeg", "/imagens/Lens Moema 02.jpeg", "/imagens/Lens Moema.jpeg"],
+    gallery: ["/imagens/01.jpeg", "/imagens/Lens Moema.jpeg"],
     slug: "helbor-lens-moema",
     isHighlight: true,
   },

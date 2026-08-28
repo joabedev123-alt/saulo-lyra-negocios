@@ -6,20 +6,9 @@ export default function Projetos() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* HERO */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1600607687931-ceeb8d145c36?q=80&w=2000&auto=format&fit=crop"
-            alt="Projetos Especiais"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/40" />
-        </div>
-        
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <span className="text-primary tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-surface/30 px-6">
+        <div className="relative z-10 text-center max-w-4xl mx-auto py-24">
+          <span className="text-foreground tracking-[0.2em] text-xs font-semibold uppercase mb-6 block">
             Projetos Especiais
           </span>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground leading-tight mb-8">

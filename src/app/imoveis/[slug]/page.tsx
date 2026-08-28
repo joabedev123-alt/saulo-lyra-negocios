@@ -2,6 +2,7 @@ import { properties } from "@/data/properties";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { PropertyGallery } from "@/components/shared/PropertyGallery";
 
 export function generateStaticParams() {
   return properties.map((property) => ({
@@ -98,6 +99,9 @@ export default async function PropertyPage({ params }: { params: { slug: string 
                 </p>
               </div>
             </div>
+            
+            {/* GALERIA DE FOTOS */}
+            <PropertyGallery images={property.gallery} />
           </div>
 
           {/* FORMULARIO */}
