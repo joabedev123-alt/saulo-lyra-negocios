@@ -36,13 +36,8 @@ export const properties: Property[] = [
     isHighlight: true,
     gallery: [
       "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.36.17.jpeg",
-      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.28.jpeg",
       "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.28 (1).jpeg",
-      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.29.jpeg",
-      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.29 (1).jpeg",
-      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.30.jpeg",
-      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.30 (1).jpeg",
-      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.44.05.jpeg"
+      "/imagens/Agami Ezetec/WhatsApp Image 2026-08-27 at 19.41.28.jpeg"
     ],
   },
   {
